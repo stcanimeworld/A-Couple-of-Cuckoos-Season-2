@@ -73,12 +73,12 @@
 
                 <section class="mb-6">
                     <div class="video-player-container rounded-lg shadow-lg">
-                        <iframe 
+                        <iframe
                             id="video-player"
-                            src="" 
-                            title="Video player" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            src=""
+                            title="Video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen>
                         </iframe>
                     </div>
@@ -86,11 +86,11 @@
 
                 <section class="bg-gray-800 rounded-lg p-4 md:p-6 mb-6">
                     <p id="episode-indicator" class="text-indigo-400 font-semibold"></p>
-                    
+
                     <div class="flex flex-wrap items-center gap-3 mt-4">
                         <div id="server-buttons" class="flex flex-wrap gap-2"></div>
 
-                        <a id="download-button" href="#" class="download-btn bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-md text-sm inline-flex items-center font-semibold">
+                        <a id="download-button" href="#" target="_blank" rel="noopener noreferrer" class="download-btn bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-md text-sm inline-flex items-center font-semibold">
                             <i class="fas fa-download mr-2"></i>
                             <span>Download</span>
                         </a>
@@ -140,7 +140,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            
+
             // --- সকল এপিসোডের তথ্য এখানে যোগ করুন ---
             // আপনাকে শুধু এই 'episodesData' অ্যারে-টি এডিট করতে হবে।
             const episodesData = [
@@ -169,7 +169,7 @@
                     },
                     downloadLink: ' https://stcanimedownloader.blogspot.com/2025/08/download-couple-of-cuckoos-season-2_14.html' // এপিসোড ৩ এর ডাউনলোড লিঙ্ক
                 },
-                
+
                 // ... এখানে নতুন এপিসোড যোগ করুন ...
             ];
 
@@ -186,7 +186,7 @@
                 if (!episodeData) return;
 
                 episodeIndicator.textContent = `You are watching Episode ${episodeData.episode}`;
-                
+
                 serverButtonsContainer.innerHTML = '';
                 let isFirstServer = true;
                 for (const serverName in episodeData.servers) {
@@ -201,13 +201,13 @@
                         videoPlayer.src = serverUrl;
                         isFirstServer = false;
                     }
-                    
+
                     button.addEventListener('click', () => {
                         videoPlayer.src = button.dataset.src;
                         document.querySelectorAll('.server-btn').forEach(btn => btn.classList.remove('active'));
                         button.classList.add('active');
                     });
-                    
+
                     serverButtonsContainer.appendChild(button);
                 }
 
@@ -226,7 +226,7 @@
                 button.className = 'episode-btn bg-gray-700 text-gray-300 font-semibold py-2 rounded-md text-center';
                 button.textContent = epData.episode;
                 button.dataset.episode = epData.episode;
-                
+
                 button.addEventListener('click', () => {
                     loadEpisode(epData.episode);
                 });
@@ -242,7 +242,7 @@
 
     <script type="text/javascript" src="//tabloidincapable.com/044478bac56eb613662b93ef204db084/invoke.js" defer></script>
     <script type='text/javascript' src='//tabloidincapable.com/55/e7/eb/55e7eb56a363eb4f7b6faa550191bf7c.js' defer></script>
-    
+
 
 </body>
 </html>
